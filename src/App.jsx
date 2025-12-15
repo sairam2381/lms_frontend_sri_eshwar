@@ -5,18 +5,25 @@ import AssignmentResults from "./components/assignment-results-backend/assignmen
 import UserAssignmentDashboard from "./components/user-assignment-page/user-assignment-page-component";
 import UserLoginPage from "./components/user-login-page/user-login-page";
 function App() {
+  const user = JSON.parse(localStorage.getItem("userDetails"));
   return (
     <Routes>
-      <Route path="/create-assignment" element={<CreateAssignmentPage />} />
-      <Route path="/user-request" element={<UserRequestsPage />} />
-      <Route
-        path="/assignment-results-backend"
-        element={<AssignmentResults />}
-      />
-      <Route
-        path="/user-assignment-backend"
-        element={<UserAssignmentDashboard />}
-      />
+      {user && (
+        <Route path="/create-assignment" element={<CreateAssignmentPage />} />
+      )}
+      {user && <Route path="/user-request" element={<UserRequestsPage />} />}
+      {user && (
+        <Route
+          path="/assignment-results-backend"
+          element={<AssignmentResults />}
+        />
+      )}
+      {user && (
+        <Route
+          path="/user-assignment-backend"
+          element={<UserAssignmentDashboard />}
+        />
+      )}
       <Route path="/user-login-page" element={<UserLoginPage />} />
     </Routes>
   );

@@ -3,6 +3,7 @@ import CreateAssignmentPage from "./components/assignment-create-page/assignment
 import UserRequestsPage from "./components/admin-request-page/admin-request-page";
 import AssignmentResults from "./components/assignment-results-backend/assignment-results-backend-component";
 import UserAssignmentDashboard from "./components/user-assignment-page/user-assignment-page-component";
+import UserLoginPage from "./components/user-login-page/user-login-page";
 function App() {
   return (
     <Routes>
@@ -16,6 +17,7 @@ function App() {
         path="/user-assignment-backend"
         element={<UserAssignmentDashboard />}
       />
+      <Route path="/user-login-page" element={<UserLoginPage />} />
     </Routes>
   );
 }
